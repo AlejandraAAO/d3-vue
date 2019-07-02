@@ -100,17 +100,73 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title"> Circle</h2>
+        <div class="chart-container">
+          <svg ref="circle1" :width="width" :height="height"></svg>
+
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">ControlSize</h2>
+        <div class="chart-container">
+          <svg ref="circle2" :width="width" :height="height"></svg>
+          <br>
+          <input type="range"
+          v-model="circleSize"
+          min="1"
+          max="100"
+          step="1">
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Build Barras</h2>
+        <div class="chart-container">
+          <svg ref="figure1" :width="width" :height="height"></svg>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Popular names</h2>
+        <div class="chart-container">
+          <Pie :data="names"/>
+          <br>
+          <button v-if="canAddName" @click="addName">Añadir nombre</button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
+import * as d3 from "d3";
 import D3Donut from "./D3Donut.vue";
 import D3Line from "./D3Line.vue";
 import D3BarVertical from "./D3BarVertical.vue";
 import D3BarHorizontal from "./D3BarHorizontal.vue";
 import D3BarHorizontalStack from "./D3BarHorizontalStack.vue";
 import D3BarVerticalStack from "./D3BarVerticalStack.vue";
+import Pie from "./circle.vue"
 
+const NAMES = [
+  { name: 'Sarah', value: 2502 },
+  { name: 'Emma', value: 2005 },
+  { name: 'Laura', value: 1968 },
+  { name: 'Chloé', value: 1863 },
+  { name: 'Marie', value: 1810 },
+  { name: 'Emily', value: 1637 },
+  { name: 'Léa', value: 1592 },
+  { name: 'Camille', value: 1572 },
+  { name: 'Anna', value: 1433 },
+  { name: 'Manon', value: 1403 }
+]
 export default {
   name: "HelloWorld",
   components: {
@@ -119,7 +175,8 @@ export default {
     D3BarVertical,
     D3BarHorizontal,
     D3BarHorizontalStack,
-    D3BarVerticalStack
+    D3BarVerticalStack,
+    Pie
   },
   props: {
     msg: String
@@ -159,7 +216,16 @@ export default {
           color: "#ee6c4d",
           active: true
         }
-      ]
+      ],
+      width: '500',
+      height: '300',
+      circleSize:50,
+      data:[
+        {name: 'one', val: 100},
+        {name: 'two', val: 150},
+        {name: 'three', val: 200}
+      ],
+      names: NAMES.slice(0,3)
     };
   },
   computed: {
@@ -174,6 +240,9 @@ export default {
         i.value3 = parseInt(i.value3);
         return i;
       });
+    },
+    canAddName(){
+      return this.names.length  < NAMES.length
     }
   },
   methods: {
@@ -195,6 +264,82 @@ export default {
     },
     select(d, i) {
       console.log("d: ", d, " : ", i);
+    },
+    drawCircle(){
+      d3.select(this.$refs.circle1)
+      .append('circle')
+      .attr('cx','250')
+      .attr('cy','150')
+      .attr('r','100')
+    },
+    controllingSize(){
+      let svg = d3.select(this.$refs.circle2);
+      this.circle = svg
+        .append('circle')
+        .attr('cx','250')
+        .attr('cy','150')
+        .attr('r', this.circleSize)
+    },
+    buildBarras(){
+      let svg = d3.select(this.$refs.figure1);
+      let width = +svg.attr('width');
+      let height = +svg.attr('height'); 
+      
+      console.log(height);
+
+       let data = [
+      {name: 'one', val: 100},
+      {name: 'two', val: 150},
+      {name: 'three', val: 200}
+      ];
+      let x = d3.scaleBand()
+                .rangeRound([0, width]).padding(0.1)
+                .domain(data.map(d => d.name));
+      let y = d3.scaleLinear()
+                .rangeRound([height * 0.3 - 20, 0])
+                .domain([0,d3.max(data, d => d.val)])
+            
+           
+      function addRectsWithName(elem, name){
+        elem
+          .append('text')
+          .text(name)
+          .attr('x', width/2)
+          .attr('y', 5)
+          .attr('text-anchor','middle');
+
+        elem.selectAll('rect')
+          .data(data)
+          .enter()
+            .append('rect')
+            .attr('x', d => x(d.name))
+            .attr('class', d => d.name)
+            .attr('y', d => y(d.val))
+            .attr('width', x.bandwidth())
+            .attr('height', d => y.range()[0] - y(d.val))
+      }
+
+      svg
+        .append('g')
+        .attr('id', 'bars-style')
+        .attr('transform', `translate(0,20)`)
+        .call(addRectsWithName, 'Basic styles')
+      
+
+    },
+    addName(){
+      this.names.push(NAMES[this.names.length]);
+    }
+  },
+  mounted(){
+    this.drawCircle();
+    this.controllingSize();
+    this.buildBarras()
+  },
+  watch:{
+    circleSize(newV){
+      this.circle
+        .attr('r',newV)
     }
   }
 };
@@ -222,5 +367,14 @@ export default {
   margin: 0;
   font-size: 1.25rem;
   font-family: sans-serif;
+}
+#bars-style .one {
+  fill: #ffc300
+}
+#bars-style .two {
+  fill: #c70039
+}
+#bars-style .three {
+  fill: #571845
 }
 </style>
