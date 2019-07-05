@@ -142,6 +142,14 @@
       </div>
 
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Happy Face</h2>
+        <div>
+          <Face />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -154,6 +162,7 @@ import D3BarHorizontal from "./D3BarHorizontal.vue";
 import D3BarHorizontalStack from "./D3BarHorizontalStack.vue";
 import D3BarVerticalStack from "./D3BarVerticalStack.vue";
 import Pie from "./circle.vue"
+import Face from "./face.vue"
 
 const NAMES = [
   { name: 'Sarah', value: 2502 },
@@ -176,7 +185,8 @@ export default {
     D3BarHorizontal,
     D3BarHorizontalStack,
     D3BarVerticalStack,
-    Pie
+    Pie,
+    Face
   },
   props: {
     msg: String
