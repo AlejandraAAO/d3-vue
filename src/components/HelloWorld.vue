@@ -145,8 +145,16 @@
     <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Happy Face</h2>
-        <div>
+        <div class="chart-container">
           <Face />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Barras</h2>
+        <div class="chart-container">
+          <Barras />
         </div>
       </div>
     </div>
@@ -163,6 +171,8 @@ import D3BarHorizontalStack from "./D3BarHorizontalStack.vue";
 import D3BarVerticalStack from "./D3BarVerticalStack.vue";
 import Pie from "./circle.vue"
 import Face from "./face.vue"
+import Barras from "./BarChart.vue"
+
 
 const NAMES = [
   { name: 'Sarah', value: 2502 },
@@ -186,7 +196,8 @@ export default {
     D3BarHorizontalStack,
     D3BarVerticalStack,
     Pie,
-    Face
+    Face,
+    Barras
   },
   props: {
     msg: String
