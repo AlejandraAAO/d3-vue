@@ -158,6 +158,46 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Circulos</h2>
+        <div class="chart-container">
+          <Circulos />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Cars</h2>
+        <div class="chart-container">
+          <Cars />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Lineas</h2>
+        <div class="chart-container">
+          <Linea />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Area</h2>
+        <div class="chart-container">
+          <Area />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Update Pattern</h2>
+        <div class="chart-container">
+          <UpdatePattern />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -172,6 +212,11 @@ import D3BarVerticalStack from "./D3BarVerticalStack.vue";
 import Pie from "./circle.vue"
 import Face from "./face.vue"
 import Barras from "./BarChart.vue"
+import Circulos from "./ScatterPlot.vue"
+import Cars from "./CarScatterPlot.vue"
+import Linea from "./Line.vue"
+import Area from "./AreaChart"
+import UpdatePattern from "./UpdatePattern.vue"
 
 
 const NAMES = [
@@ -197,7 +242,12 @@ export default {
     D3BarVerticalStack,
     Pie,
     Face,
-    Barras
+    Barras,
+    Circulos,
+    Cars,
+    Linea,
+    Area,
+    UpdatePattern
   },
   props: {
     msg: String

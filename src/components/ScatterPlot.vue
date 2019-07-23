@@ -5,7 +5,7 @@
 <script>
 import * as d3 from "d3";
 export default {
-    name:'Barras',
+    name:'Circulos',
     data(){
       return {
         countries: [
@@ -35,10 +35,10 @@ export default {
     },
     mounted(){
       console.log(this.countries);
-      this.renderRectan(this.countries);
+      this.renderCircle(this.countries);
     },
     methods:{
-      renderRectan(data){
+      renderCircle(data){
         const svg = d3.select(this.$el);
         let width = +svg.attr('width');
         let height = +svg.attr('height'); 
@@ -53,17 +53,20 @@ export default {
         //mapea los valores del domain(min, max valores de la data) 
         //con sus correspondientes range(espacio en la pantalla)
           .domain([0, d3.max(data, xValue)])
-          .range([0, innerWidth]);
-
-        const yScale = d3.scaleBand()//nombre de los paises
+          .range([0, innerWidth])
+          .nice()
+          //scalePoint para manejar los circulos y attr ordenados 
+        const yScale = d3.scalePoint()//nombre de los paises
         //mapea domain y range de los espacios de las barras incluyendo
           .domain(data.map(yValue))
           .range([0, innerHeight])
-          .padding(0.1)
+          .padding(0.5)
           //.fill(d => d3.interpolateCool(Math.random()))
 
-        const yAxis = d3.axisLeft(yScale);
-        //crea un nuevo eje con orientacion a la izq 
+        const yAxis = d3.axisLeft(yScale)
+        //la data del eje y cree lineas q ocupen todo el grafico
+          .tickSize(-innerWidth);
+        
        
         const xAxisTickFormat = number => d3.format('.1s')(number);
          //para formatear los valores del eje x
@@ -76,9 +79,9 @@ export default {
         
         //eje y
         g.append('g')
-          .call(d3.axisLeft(yScale))
+          .call(yAxis)
           //selecciona la linea del eje y y la borra con el remove
-          .selectAll('.domain, .tick line')
+          .selectAll('.domain')
             .remove()
           ;
         g.append('g').call(xAxis)
@@ -87,12 +90,13 @@ export default {
             .remove();
 
         const rectangulos =  g
-          .selectAll('rect').data(data)
-            .enter().append('rect')
-              .attr('y', d=> yScale(yValue(d)))
-              .attr('width',d => xScale(xValue(d)))
-              //ancho de cada barra por separado
-              .attr('height',yScale.bandwidth())
+          .selectAll('circle').data(data)
+            .enter().append('circle')
+            //alinear los circulos a data del eje y
+              .attr('cy', d=> yScale(yValue(d)))
+              .attr('cx',d => xScale(xValue(d)))
+              //diametro de cada circulo
+              .attr('r',20)
               .attr('fill', d => d3.interpolateViridis(Math.random()))
       }
     }

@@ -46,7 +46,6 @@ export default {
             
             let block = this.pieG.selectAll('.arc')
                 .data(arcs)
-
                 block.select('path').attr('d',this.arc)
             
             let newBlock = block
