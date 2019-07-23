@@ -142,19 +142,27 @@
       </div>
 
     </div>
-    <div class="grid-item">
+  <!--   <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Happy Face</h2>
         <div class="chart-container">
           <Face />
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Barras</h2>
         <div class="chart-container">
           <Barras />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Barras con Labels</h2>
+        <div class="chart-container">
+          <BarrasLabel />
         </div>
       </div>
     </div>
@@ -217,6 +225,7 @@ import Cars from "./CarScatterPlot.vue"
 import Linea from "./Line.vue"
 import Area from "./AreaChart"
 import UpdatePattern from "./UpdatePattern.vue"
+import BarrasLabel from "./BarrasLabel"
 
 
 const NAMES = [
@@ -247,7 +256,8 @@ export default {
     Cars,
     Linea,
     Area,
-    UpdatePattern
+    UpdatePattern,
+    BarrasLabel
   },
   props: {
     msg: String
