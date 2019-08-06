@@ -206,6 +206,14 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Loli</h2>
+        <div class="chart-container">
+          <Dona/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -226,6 +234,7 @@ import Linea from "./Line.vue"
 import Area from "./AreaChart"
 import UpdatePattern from "./UpdatePattern.vue"
 import BarrasLabel from "./BarrasLabel"
+import Dona from "./DonaTooltip"
 
 
 const NAMES = [
@@ -257,7 +266,8 @@ export default {
     Linea,
     Area,
     UpdatePattern,
-    BarrasLabel
+    BarrasLabel,
+    Dona
   },
   props: {
     msg: String

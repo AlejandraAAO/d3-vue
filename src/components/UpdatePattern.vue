@@ -23,7 +23,7 @@ export default {
         /*    const render = (selection, {fruits}) => {
           selection.selectAll('circle').data(fruits)
           //enter es solo data
-            .enter().append('circle')
+          zz  .enter().append('circle')
                 .attr('cx',(d,i) => i *100 + 60)
                 .attr('cy', height/2)
                 .attr('fill','#700f0f')
@@ -73,15 +73,24 @@ export default {
         const radiusScale = d3.scaleOrdinal()
           .domain(['apple','lemon'])
           .range([30,15])
+          
+          const groups = selection.selectAll('g')
+            .data(fruits, d => d.id);
+            //enter es solo data
+            const groupsEnter = groups
+              .enter().append('g');
+              groupsEnter.merge(groups)
+                .attr('transform',(d,i) => `translate(${xPosition},${this.height/2})`)
+            groups.exit()
+              .remove();
+
         //circles es data join
-        const circles = selection.selectAll('circle')
-          .data(fruits, d => d.id)
+        const circles = groups.select('circle')     
           //enter es solo data
-            circles
-              .enter().append('circle')
+            groupsEnter
+            .append('circle')
                 .attr('cx',xPosition)
                 .attr('cy', this.height/2)
-                .attr('r', 0)
               .merge(circles)
                 .attr('fill',d => colorScale(d.type))
               .transition().duration(1000)
@@ -103,7 +112,7 @@ export default {
             text
               .enter().append('text')
                 .attr('x',xPosition)
-                .attr('y', this.height/2)
+                .attr('y', this.height/2 + 45)
             
               .merge(text)
                 .text(d => d.type);
@@ -117,7 +126,8 @@ export default {
 <style scoped>
   text {
     font-size: 1rem;
-    text-anchor: middle
+    text-anchor: middle;
+    font-family: sans-serif;
   }
 </style>
 
