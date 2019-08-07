@@ -142,7 +142,7 @@
       </div>
 
     </div>
-  <!--   <div class="grid-item">
+    <!--   <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Happy Face</h2>
         <div class="chart-container">
@@ -210,7 +210,25 @@
       <div class="card">
         <h2 class="card-title">Loli</h2>
         <div class="chart-container">
-          <Dona/>
+          <Loli/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Pie</h2>
+        <div class="chart-container">
+          <PieComplete/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <div class="card-title">
+          Top
+        </div>
+        <div class="chart-container">
+          <Top />
         </div>
       </div>
     </div>
@@ -234,7 +252,9 @@ import Linea from "./Line.vue"
 import Area from "./AreaChart"
 import UpdatePattern from "./UpdatePattern.vue"
 import BarrasLabel from "./BarrasLabel"
-import Dona from "./DonaTooltip"
+import Loli from "./DonaTooltip"
+import PieComplete from "./PieChart"
+import Top from "./Top"
 
 
 const NAMES = [
@@ -267,7 +287,10 @@ export default {
     Area,
     UpdatePattern,
     BarrasLabel,
-    Dona
+    Loli,
+    PieComplete,
+    Top
+    
   },
   props: {
     msg: String
