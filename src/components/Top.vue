@@ -1,8 +1,8 @@
 <template>
   <svg width="500" height="300">
-    <circle cx="40" cy="60" r="10" style="fill:#98abc5;"></circle>
+    <!-- <circle cx="40" cy="60" r="10" style="fill:#98abc5;"></circle>
     <circle cx="160" cy="60" r="10" style="fill:#8a89a6;"></circle>
-    <circle cx="290" cy="60" r="10" style="fill:#7b6888;"></circle>
+    <circle cx="290" cy="60" r="10" style="fill:#7b6888;"></circle> -->
   </svg>
 </template>
 
@@ -32,18 +32,39 @@ export default {
       const margin = { top: 20, left: 40, bottom: 20, rigth: 20 };
       const innerWidth = width - margin.left - margin.rigth;
       const innerHeight = height - margin.top - margin.bottom;
-      const colors = d3.scaleOrdinal([
+      */const colors = d3.scaleOrdinal([
         "#98abc5",
         "#8a89a6",
         "#7b6888",
         "#6b486b",
         "#a05d56"
-      ]); */
+      ]); 
       const svg = d3.select(this.$el);
-
-      const circle = svg.selectAll('circle')
+      const cxVals = [100, 220, 350];
+      
+      /* const circle = svg.selectAll('circle')
         .data(this.data.map(d => d.val))
-        .attr('r', d => Math.sqrt(d)*4)
+        .attr('r', d => Math.sqrt(d)*4) */
+      const circles = svg.selectAll('g')
+        .data(this.data);
+
+      const elemEnter = circles.enter()
+        .append('g')
+        .attr('transform',(d,i) => `translate(${cxVals[i]},80)`);
+
+      const circle = elemEnter.append('circle')
+        .attr('r',d => Math.sqrt(d.val)*4)
+        .attr('fill',(d,i) => {
+          console.log(i);
+          console.log(colors(d.val));
+          return colors(d.val)
+        })
+      elemEnter.append('text')
+        .attr('dx', d => -20)
+        .text(d => {
+          console.log(d.name);
+          return d.name
+        })
    
     }
   }
