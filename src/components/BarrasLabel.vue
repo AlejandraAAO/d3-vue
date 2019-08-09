@@ -94,6 +94,7 @@ export default {
               //ancho de cada barra por separado
               .attr('height',yScale.bandwidth())
               .attr('fill', d => d3.interpolateViridis(Math.random()))
+        g.selectAll('text')
       }
     }
 }

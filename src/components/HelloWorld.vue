@@ -224,11 +224,19 @@
     </div>
     <div class="grid-item">
       <div class="card">
-        <div class="card-title">
+        <h2 class="card-title">
           Top
-        </div>
+        </h2>
         <div class="chart-container">
           <Top />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Barras agrupadas</h2>
+        <div class="chart-container">
+          <GroupBars />
         </div>
       </div>
     </div>
@@ -255,6 +263,7 @@ import BarrasLabel from "./BarrasLabel"
 import Loli from "./DonaTooltip"
 import PieComplete from "./PieChart"
 import Top from "./Top"
+import GroupBars from "./BarsGroup"
 
 
 const NAMES = [
@@ -289,7 +298,8 @@ export default {
     BarrasLabel,
     Loli,
     PieComplete,
-    Top
+    Top,
+    GroupBars
     
   },
   props: {
@@ -377,7 +387,7 @@ export default {
       });
     },
     select(d, i) {
-      console.log("d: ", d, " : ", i);
+     // console.log("d: ", d, " : ", i);
     },
     drawCircle(){
       d3.select(this.$refs.circle1)
@@ -399,7 +409,7 @@ export default {
       let width = +svg.attr('width');
       let height = +svg.attr('height'); 
       
-      console.log(height);
+      //console.log(height);
 
        let data = [
       {name: 'one', val: 100},

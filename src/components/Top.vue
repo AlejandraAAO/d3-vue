@@ -20,7 +20,7 @@ export default {
     };
   },
   mounted() {
-    console.log("x");
+    //console.log("x");
     this.buildCircles(this.data);
   },
   methods: {
