@@ -1,6 +1,6 @@
 <template>
     <svg width="500" height="300">
-      <!-- <path d="M150 0 L75 200 L225 200 Z" /> -->
+     
     </svg>
 </template>
 
@@ -39,55 +39,6 @@ export default {
       this.renderData2(this.countries)
     },
     methods:{
-        renderPie(data){
-          const svg = d3.select(this.$el);
-          let width = +svg.attr('width');
-          let height = +svg.attr('height'); 
-          let radius = Math.min(width, height) / 2;
-          const margin = {top:20,left:40,bottom:20,rigth:20};
-          const innerWidth = width - margin.left - margin.rigth;
-          const innerHeight = height - margin.top - margin.bottom
-
-          const g = svg.append('g')
-            .attr('transform',`translate(${width/2},${height/2})`);
-
-          const color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"]);
-          
-          const dataTotal = data.map(d => d.total);
-
-          const dataText = data.map(d => d.name)
-          console.log(dataTotal);
-          console.log(dataText);
-
-          const pie = d3.pie();
-          
-
-          console.log(pie(dataTotal));
-
-          const arc = d3.arc()
-            .innerRadius(0)
-            .outerRadius(radius);
-          
-          const label = d3.arc()
-            .innerRadius(radius - 80)
-            .outerRadius(radius);
-
-          const arcs = g.selectAll('arc')
-            .data(pie(dataTotal))
-            .enter()
-            .append('g')
-            .attr('class','arc')
-          
-          arcs.append('path')
-            .attr('d',arc)
-            .attr('fill', (d,i) => color(i));
-          
-          console.log(arcs);
-        
-          arcs.append('text')
-            .attr('transform',d => `translate(${label.centroid(d)})`)
-            .text(dataText);
-        },
         renderData2(data){
           //conf inicial
           const svg = d3.select(this.$el);
@@ -113,7 +64,9 @@ export default {
           const label = d3.arc()
             .innerRadius(radius - 80)
             .outerRadius(radius);
-          
+
+          const containner = svg.append('g')
+         
           
           const arcs = g.selectAll('.arc')
             .data(pie(data))

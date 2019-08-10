@@ -173,11 +173,7 @@ export default {
         .selectAll('path')
         .style('stroke','none');
 
-      let nugget = chartContainner.append('g')
-        .attr('class','nugget')
-        .selectAll('g')
-        .data(d => {console.log(d)})
-      
+     
     }
   }
 };
