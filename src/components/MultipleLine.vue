@@ -310,7 +310,7 @@ const svg = d3.select(this.$el);
               .attr('cx', d => xScale(xValue(d)))
               //diametro de cada circulo
               .attr('r',circleRadius)
-              .attr('fill', 'none')
+              .attr('fill', 'grey')
         }
     }
 }

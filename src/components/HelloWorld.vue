@@ -288,6 +288,14 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">VerticalGroupBars</h2>
+        <div class="chart-container">
+          <VerticalGroupBars/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -318,6 +326,7 @@ import ScatterPlotLine from './ScatterPlotLine'
 import NegativeX from './NegativeX'
 import BarChartVertical from './BarChartVertical'
 import VerticalBarsNegative from './VerticalBarsNegative'
+import VerticalGroupBars from './VerticalGroupBars'
 
 
 const NAMES = [
@@ -359,7 +368,8 @@ export default {
     ScatterPlotLine,
     NegativeX,
     BarChartVertical,
-    VerticalBarsNegative
+    VerticalBarsNegative,
+    VerticalGroupBars
   },
   props: {
     msg: String

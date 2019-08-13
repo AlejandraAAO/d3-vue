@@ -107,4 +107,3 @@ export default {
 stroke: #C0C0BB
 }
 </style>
-'x

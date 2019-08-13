@@ -5,29 +5,33 @@
 <script>
 import * as d3 from "d3";
 export default {
-  name: "VerticalBarsNegative",
+  name: "VerticalGroupBars",
   data() {
     return {
       dataVals: [
         {
           dataset: "A",
-          value: -15
+          value: -15,
+          group:'nugget'
         },
         {
           dataset: "B",
-          value: -20
+          value: -20,
+          group:'wantan'
         },
         {
           dataset: "C",
-          value: -22
+          value: -22,
+          group:'nugget'
         },
         {
           dataset: "D",
-          value: 2
+          value: 2,
+          group:'wantan'
         },
         {
           dataset: "E",
-          value: 10
+          value: 10,group:'nugget'
         }
       ]
     };
@@ -45,7 +49,21 @@ export default {
       const innerHeight = height - margin.top - margin.bottom;
       
       svg.attr('transform', `translate(${margin.left},${margin.top})`);     
+      ////////////////////////////////////////////
+      ////////////////   GRUPOS  /////////////////
+      ///////////////////////////////////////////
       
+      const groups = d3.nest()
+        .key(d => d.group)
+        .entries(data);
+      console.log(groups)
+
+    const yGroupScale = d3.scaleBand()
+        .domain(groups.map(d => d.key))
+        .rangeRound([])
+
+
+      //////////////////////////////////////////
       const y = d3.scaleBand()
         .range([innerHeight,0])
         .padding(0.1);
