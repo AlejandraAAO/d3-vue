@@ -264,6 +264,30 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">NegativeY</h2>
+        <div class="chart-container">
+          <NegativeX/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">BarChartVertical</h2>
+        <div class="chart-container">
+          <BarChartVertical/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">VerticalBarsNegative</h2>
+        <div class="chart-container">
+          <VerticalBarsNegative/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -291,6 +315,9 @@ import GroupBars from "./BarsGroup"
 import BubleDiferent from './BubleDiferent'
 import MultipleLine from './MultipleLine'
 import ScatterPlotLine from './ScatterPlotLine'
+import NegativeX from './NegativeX'
+import BarChartVertical from './BarChartVertical'
+import VerticalBarsNegative from './VerticalBarsNegative'
 
 
 const NAMES = [
@@ -329,8 +356,10 @@ export default {
     GroupBars,
     BubleDiferent,
     MultipleLine,
-    ScatterPlotLine
-    
+    ScatterPlotLine,
+    NegativeX,
+    BarChartVertical,
+    VerticalBarsNegative
   },
   props: {
     msg: String
