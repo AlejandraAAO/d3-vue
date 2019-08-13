@@ -240,6 +240,30 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">BubleDiferent</h2>
+        <div class="chart-container">
+          <BubleDiferent/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">MUltipleLine</h2>
+        <div class="chart-container">
+          <MultipleLine/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">ScatterPlotLine</h2>
+        <div class="chart-container">
+          <ScatterPlotLine />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -264,6 +288,9 @@ import Loli from "./DonaTooltip"
 import PieComplete from "./PieChart"
 import Top from "./Top"
 import GroupBars from "./BarsGroup"
+import BubleDiferent from './BubleDiferent'
+import MultipleLine from './MultipleLine'
+import ScatterPlotLine from './ScatterPlotLine'
 
 
 const NAMES = [
@@ -299,7 +326,10 @@ export default {
     Loli,
     PieComplete,
     Top,
-    GroupBars
+    GroupBars,
+    BubleDiferent,
+    MultipleLine,
+    ScatterPlotLine
     
   },
   props: {
