@@ -1,5 +1,6 @@
 <template>
-  <svg width="500" height="300" />
+<div class="container-div" ref="container"></div>
+  <!-- <svg width="500" height="300" /> -->
 </template>
 
 <script>
@@ -39,12 +40,17 @@ export default {
     },
     methods:{
       renderCircle(data){
-        const svg = d3.select(this.$el);
-        let width = +svg.attr('width');
-        let height = +svg.attr('height'); 
-        const margin = {top:20,left:40,bottom:20,rigth:20};
+        //const svg = d3.select(this.$el);
+        let width = 500;
+        let height = 450; 
+        const margin = {top:20,left:40,bottom:50,rigth:20};
         const innerWidth = width - margin.left - margin.rigth;
         const innerHeight = height - margin.top - margin.bottom;
+      
+        const svg = d3.select('.container-div')
+          .append('svg')
+          .attr('width', width)
+          .attr('height',height)
         //grupos que especifican q valores tomo
         const xValue = d => d.total;
         const yValue = d => d.name;
@@ -75,12 +81,18 @@ export default {
         const xAxisTickFormat = number => d3.format('.1s')(number);
          //para formatear los valores del eje x
         const xAxis = d3.axisBottom(xScale)
-          .tickFormat(xAxisTickFormat)
+          //.tickFormat(xAxisTickFormat)
           .tickSize(-innerHeight);
 
         const g = svg.append('g')
           .attr('transform', `translate(${margin.left},${margin.top})`);
-        
+        /* TOOLTIP-----------------------------------------------*/
+        const div = d3.select('.container-div')
+          .append('div')
+          .attr('class','tooltip')
+          .style('opacity',0);
+
+        /* ----------------------------------------------------- */
         //eje y
         g.append('g')
           .call(yAxis)
@@ -95,7 +107,9 @@ export default {
 
         const circulos =  g
           .selectAll('circle').data(data)
-            .enter().append('circle')
+            .enter().append('g');
+            
+            circulos.append('circle')
             //alinear los circulos a data del eje y
               .attr('cy', d=> yScale(yValue(d)))
               .attr('cx',d => xScale(xValue(d)))
@@ -103,6 +117,38 @@ export default {
               .attr('r',20)
               .attr('fill',d => colorBubles(d.group))
               .style('opacity','0.6')
+              .style('cursor','pointer')
+              .on('mouseover', d => {
+                let coord = this.$refs.container.getBoundingClientRect();
+                let y = window.scrollY + coord.top;
+                let x = window.scrollX + coord.left;
+
+                div
+                  .transition()
+                  .duration(200)
+                  .style('opacity',0.9)
+                div
+                  .html(`${d.total}`)
+                  .style('color','rgb(53,52,52)')
+                  .style('left',`${d3.event.pageX - x}px`)
+                  .style('top',`${d3.event.pageY - y}px`)
+                  .style('background-color','white');
+              })
+              .on('mousemove',() => {
+                let coord = this.$refs.container.getBoundingClientRect();
+                let y = window.scrollY + coord.top;
+                let x = window.scrollX + coord.left;
+
+                div
+                  .style('left',`${d3.event.pageX - x}px`)
+                  .style('top',`${d3.event.pageY - y}px`)
+              })
+              .on('mouseout',() => {
+                div
+                  .transition()
+                  .duration(500)
+                  .style('opacity',0)
+              })
       }
     }
 }
@@ -114,5 +160,13 @@ export default {
 }
 .tick line {
 stroke: #C0C0BB
+}
+
+.container-div {
+  position: relative;
+}
+.tooltip {
+   position: absolute !important;
+  color: rgb(53, 52, 52);
 }
 </style>

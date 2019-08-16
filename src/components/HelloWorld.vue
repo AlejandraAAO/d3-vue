@@ -296,6 +296,14 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">BarGroupsHorizontal</h2>
+        <div class="chart-container">
+          <BarGroupsHorizontal/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -327,6 +335,7 @@ import NegativeX from './NegativeX'
 import BarChartVertical from './BarChartVertical'
 import VerticalBarsNegative from './VerticalBarsNegative'
 import VerticalGroupBars from './VerticalGroupBars'
+import BarGroupsHorizontal from './BarGroupsHrizontal'
 
 
 const NAMES = [
@@ -369,7 +378,8 @@ export default {
     NegativeX,
     BarChartVertical,
     VerticalBarsNegative,
-    VerticalGroupBars
+    VerticalGroupBars,
+    BarGroupsHorizontal
   },
   props: {
     msg: String
