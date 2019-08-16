@@ -20,7 +20,7 @@ export default {
           },
           {
             timestamp: '2019-01-01T12:00:00.000',
-            temperature: .3139687
+            temperature: 0
           },
           {
             timestamp: '2019-01-02T13:00:00.000',

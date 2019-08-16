@@ -34,8 +34,11 @@ export default {
       
     },
     mounted(){
-      console.log(this.countries);
-      this.renderRectan(this.countries);
+      const orden = this.countries.sort((a,b) => b.total - a.total);
+
+      console.log('Barras',orden);
+
+      this.renderRectan(orden);
     },
     methods:{
       renderRectan(data){

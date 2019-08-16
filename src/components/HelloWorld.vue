@@ -304,6 +304,25 @@
         </div>
       </div>
     </div>
+
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">MultipleLinesMonths</h2>
+        <div class="chart-container">
+          <MultipleLinesMonths/>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">NegativeScareplot</h2>
+        <div class="chart-container">
+          <NegativeScareplot/>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -336,6 +355,8 @@ import BarChartVertical from './BarChartVertical'
 import VerticalBarsNegative from './VerticalBarsNegative'
 import VerticalGroupBars from './VerticalGroupBars'
 import BarGroupsHorizontal from './BarGroupsHrizontal'
+import MultipleLinesMonths from './MultipleLinesMonths'
+import NegativeScareplot from './NegativeScareplot'
 
 
 const NAMES = [
@@ -379,7 +400,9 @@ export default {
     BarChartVertical,
     VerticalBarsNegative,
     VerticalGroupBars,
-    BarGroupsHorizontal
+    BarGroupsHorizontal,
+    MultipleLinesMonths,
+    NegativeScareplot
   },
   props: {
     msg: String
