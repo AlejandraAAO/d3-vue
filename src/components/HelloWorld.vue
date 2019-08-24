@@ -340,6 +340,15 @@
         </div>
       </div>
     </div>
+    
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Top10</h2>
+        <div class="chart-container">
+          <Top10/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -376,6 +385,7 @@ import MultipleLinesMonths from './MultipleLinesMonths'
 import NegativeScareplot from './NegativeScareplot'
 import Aro from './Aro'
 import LineDiary from './LineDiary'
+import Top10 from './Top10'
 
 
 const NAMES = [
@@ -423,7 +433,8 @@ export default {
     MultipleLinesMonths,
     NegativeScareplot,
     Aro,
-    LineDiary
+    LineDiary,
+    Top10
   },
   props: {
     msg: String
