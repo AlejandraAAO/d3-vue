@@ -349,6 +349,38 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Barcahrtnegativo con porcentage</h2>
+        <div class="chart-container">
+          <YNegativeBars />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Barras verticales con leyenda</h2>
+        <div class="chart-container">
+       <BarsVerticalLegend/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Linea y barras</h2>
+        <div class="chart-container">
+       <TwoGrapics/>
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Horizontal Line</h2>
+        <div class="chart-container">
+       <BarsHorizontalLine/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -386,6 +418,11 @@ import NegativeScareplot from './NegativeScareplot'
 import Aro from './Aro'
 import LineDiary from './LineDiary'
 import Top10 from './Top10'
+import YNegativeBars from './YNegativeBars'
+import Autocomplete from './Autocomplete'
+import BarsVerticalLegend from './BarsVerticalLegend'
+import TwoGrapics from './TwoGraphics'
+import BarsHorizontalLine from './BarsHorizontalLine'
 
 
 const NAMES = [
@@ -434,7 +471,11 @@ export default {
     NegativeScareplot,
     Aro,
     LineDiary,
-    Top10
+    Top10,
+    YNegativeBars,
+    Autocomplete,
+    BarsVerticalLegend,
+    TwoGrapics
   },
   props: {
     msg: String
