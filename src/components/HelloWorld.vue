@@ -475,7 +475,8 @@ export default {
     YNegativeBars,
     Autocomplete,
     BarsVerticalLegend,
-    TwoGrapics
+    TwoGrapics,
+    BarsHorizontalLine
   },
   props: {
     msg: String
