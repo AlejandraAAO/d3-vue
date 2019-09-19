@@ -1,6 +1,6 @@
 <template>
   <div ref="container_barhorizontalline">
-    <svg width="500" height="300" ref="barhorizontalline" />
+    <svg ref="barhorizontalline" />
   </div>
 </template>
 
