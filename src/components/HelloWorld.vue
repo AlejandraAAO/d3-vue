@@ -5,16 +5,16 @@
         <h2 class="card-title">Donunt Chart</h2>
 
         <div class="chart-container">
-          <d3-donut :height="960" :thickness="90" keyColor="color" :value="parserData"/>
+          <d3-donut :height="960" :thickness="90" keyColor="color" :value="parserData" />
         </div>
         <div class="controls">
           <div v-for="item,key in paises" :key="key">
             <label for>{{item.name}} {{item.value}}</label>
-            <input type="checkbox" v-model="item.active">
-            <input type="range" min="0" max="100" step="1" v-model="paises[key].value">
+            <input type="checkbox" v-model="item.active" />
+            <input type="range" min="0" max="100" step="1" v-model="paises[key].value" />
           </div>
 
-          <hr>
+          <hr />
 
           <button @click="addPaises">Añadir</button>
         </div>
@@ -72,16 +72,16 @@
           <div class="controls">
             <div v-for="item,key in paises" :key="key">
               <label for>{{item.name}} {{item.value2}}</label>
-              <input type="checkbox" v-model="item.active">
-              <input type="range" min="0" max="100" step="1" v-model="paises[key].value2">
+              <input type="checkbox" v-model="item.active" />
+              <input type="range" min="0" max="100" step="1" v-model="paises[key].value2" />
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="controls">
             <div v-for="item,key in paises" :key="key">
               <label for>{{item.name}} {{item.value3}}</label>
-              <input type="checkbox" v-model="item.active">
-              <input type="range" min="0" max="100" step="1" v-model="paises[key].value3">
+              <input type="checkbox" v-model="item.active" />
+              <input type="range" min="0" max="100" step="1" v-model="paises[key].value3" />
             </div>
           </div>
         </div>
@@ -102,10 +102,9 @@
     </div>
     <div class="grid-item">
       <div class="card">
-        <h2 class="card-title"> Circle</h2>
+        <h2 class="card-title">Circle</h2>
         <div class="chart-container">
-          <svg ref="circle1" :width="width" :height="height"></svg>
-
+          <svg ref="circle1" :width="width" :height="height" />
         </div>
       </div>
     </div>
@@ -113,13 +112,9 @@
       <div class="card">
         <h2 class="card-title">ControlSize</h2>
         <div class="chart-container">
-          <svg ref="circle2" :width="width" :height="height"></svg>
-          <br>
-          <input type="range"
-          v-model="circleSize"
-          min="1"
-          max="100"
-          step="1">
+          <svg ref="circle2" :width="width" :height="height" />
+          <br />
+          <input type="range" v-model="circleSize" min="1" max="100" step="1" />
         </div>
       </div>
     </div>
@@ -127,7 +122,7 @@
       <div class="card">
         <h2 class="card-title">Build Barras</h2>
         <div class="chart-container">
-          <svg ref="figure1" :width="width" :height="height"></svg>
+          <svg ref="figure1" :width="width" :height="height" />
         </div>
       </div>
     </div>
@@ -135,12 +130,11 @@
       <div class="card">
         <h2 class="card-title">Popular names</h2>
         <div class="chart-container">
-          <Pie :data="names"/>
-          <br>
+          <Pie :data="names" />
+          <br />
           <button v-if="canAddName" @click="addName">Añadir nombre</button>
         </div>
       </div>
-
     </div>
     <!--   <div class="grid-item">
       <div class="card">
@@ -149,7 +143,7 @@
           <Face />
         </div>
       </div>
-    </div> -->
+    </div>-->
     <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Barras</h2>
@@ -210,7 +204,7 @@
       <div class="card">
         <h2 class="card-title">Loli</h2>
         <div class="chart-container">
-          <Loli/>
+          <Loli />
         </div>
       </div>
     </div>
@@ -218,15 +212,13 @@
       <div class="card">
         <h2 class="card-title">Pie</h2>
         <div class="chart-container">
-          <PieComplete/>
+          <PieComplete />
         </div>
       </div>
     </div>
     <div class="grid-item">
       <div class="card">
-        <h2 class="card-title">
-          Top
-        </h2>
+        <h2 class="card-title">Top</h2>
         <div class="chart-container">
           <Top />
         </div>
@@ -244,7 +236,7 @@
       <div class="card">
         <h2 class="card-title">BubleDiferent</h2>
         <div class="chart-container">
-          <BubleDiferent/>
+          <BubleDiferent />
         </div>
       </div>
     </div>
@@ -252,7 +244,7 @@
       <div class="card">
         <h2 class="card-title">MUltipleLine</h2>
         <div class="chart-container">
-          <MultipleLine/>
+          <MultipleLine />
         </div>
       </div>
     </div>
@@ -268,7 +260,7 @@
       <div class="card">
         <h2 class="card-title">NegativeY</h2>
         <div class="chart-container">
-          <NegativeX/>
+          <NegativeX />
         </div>
       </div>
     </div>
@@ -276,7 +268,7 @@
       <div class="card">
         <h2 class="card-title">BarChartVertical</h2>
         <div class="chart-container">
-          <BarChartVertical/>
+          <BarChartVertical />
         </div>
       </div>
     </div>
@@ -284,7 +276,7 @@
       <div class="card">
         <h2 class="card-title">VerticalBarsNegative</h2>
         <div class="chart-container">
-          <VerticalBarsNegative/>
+          <VerticalBarsNegative />
         </div>
       </div>
     </div>
@@ -292,7 +284,7 @@
       <div class="card">
         <h2 class="card-title">VerticalGroupBars</h2>
         <div class="chart-container">
-          <VerticalGroupBars/>
+          <VerticalGroupBars />
         </div>
       </div>
     </div>
@@ -300,7 +292,7 @@
       <div class="card">
         <h2 class="card-title">BarGroupsHorizontal</h2>
         <div class="chart-container">
-          <BarGroupsHorizontal/>
+          <BarGroupsHorizontal />
         </div>
       </div>
     </div>
@@ -309,7 +301,7 @@
       <div class="card">
         <h2 class="card-title">MultipleLinesMonths</h2>
         <div class="chart-container">
-          <MultipleLinesMonths/>
+          <MultipleLinesMonths />
         </div>
       </div>
     </div>
@@ -318,7 +310,7 @@
       <div class="card">
         <h2 class="card-title">NegativeScareplot</h2>
         <div class="chart-container">
-          <NegativeScareplot/>
+          <NegativeScareplot />
         </div>
       </div>
     </div>
@@ -340,12 +332,12 @@
         </div>
       </div>
     </div>
-    
+
     <div class="grid-item">
       <div class="card">
         <h2 class="card-title">Top10</h2>
         <div class="chart-container">
-          <Top10/>
+          <Top10 />
         </div>
       </div>
     </div>
@@ -361,7 +353,7 @@
       <div class="card">
         <h2 class="card-title">Barras verticales con leyenda</h2>
         <div class="chart-container">
-       <BarsVerticalLegend/>
+          <BarsVerticalLegend />
         </div>
       </div>
     </div>
@@ -369,7 +361,7 @@
       <div class="card">
         <h2 class="card-title">Linea y barras</h2>
         <div class="chart-container">
-       <TwoGrapics/>
+          <TwoGrapics />
         </div>
       </div>
     </div>
@@ -377,7 +369,15 @@
       <div class="card">
         <h2 class="card-title">Horizontal Line</h2>
         <div class="chart-container">
-       <BarsHorizontalLine/>
+          <BarsHorizontalLine />
+        </div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">Bars Paint By Value</h2>
+        <div class="chart-container">
+          <BarrasPaintByValue labelKey="name" valueKey="value" :bars="dataBarras" />
         </div>
       </div>
     </div>
@@ -392,51 +392,51 @@ import D3BarVertical from "./D3BarVertical.vue";
 import D3BarHorizontal from "./D3BarHorizontal.vue";
 import D3BarHorizontalStack from "./D3BarHorizontalStack.vue";
 import D3BarVerticalStack from "./D3BarVerticalStack.vue";
-import Pie from "./circle.vue"
-import Face from "./face.vue"
-import Barras from "./BarChart.vue"
-import Circulos from "./ScatterPlot.vue"
-import Cars from "./CarScatterPlot.vue"
-import Linea from "./Line.vue"
-import Area from "./AreaChart"
-import UpdatePattern from "./UpdatePattern.vue"
-import BarrasLabel from "./BarrasLabel"
-import Loli from "./DonaTooltip"
-import PieComplete from "./PieChart"
-import Top from "./Top"
-import GroupBars from "./BarsGroup"
-import BubleDiferent from './BubleDiferent'
-import MultipleLine from './MultipleLine'
-import ScatterPlotLine from './ScatterPlotLine'
-import NegativeX from './NegativeX'
-import BarChartVertical from './BarChartVertical'
-import VerticalBarsNegative from './VerticalBarsNegative'
-import VerticalGroupBars from './VerticalGroupBars'
-import BarGroupsHorizontal from './BarGroupsHrizontal'
-import MultipleLinesMonths from './MultipleLinesMonths'
-import NegativeScareplot from './NegativeScareplot'
-import Aro from './Aro'
-import LineDiary from './LineDiary'
-import Top10 from './Top10'
-import YNegativeBars from './YNegativeBars'
-import Autocomplete from './Autocomplete'
-import BarsVerticalLegend from './BarsVerticalLegend'
-import TwoGrapics from './TwoGraphics'
-import BarsHorizontalLine from './BarsHorizontalLine'
-
+import Pie from "./circle.vue";
+import Face from "./face.vue";
+import Barras from "./BarChart.vue";
+import Circulos from "./ScatterPlot.vue";
+import Cars from "./CarScatterPlot.vue";
+import Linea from "./Line.vue";
+import Area from "./AreaChart";
+import UpdatePattern from "./UpdatePattern.vue";
+import BarrasLabel from "./BarrasLabel";
+import Loli from "./DonaTooltip";
+import PieComplete from "./PieChart";
+import Top from "./Top";
+import GroupBars from "./BarsGroup";
+import BubleDiferent from "./BubleDiferent";
+import MultipleLine from "./MultipleLine";
+import ScatterPlotLine from "./ScatterPlotLine";
+import NegativeX from "./NegativeX";
+import BarChartVertical from "./BarChartVertical";
+import VerticalBarsNegative from "./VerticalBarsNegative";
+import VerticalGroupBars from "./VerticalGroupBars";
+import BarGroupsHorizontal from "./BarGroupsHrizontal";
+import MultipleLinesMonths from "./MultipleLinesMonths";
+import NegativeScareplot from "./NegativeScareplot";
+import Aro from "./Aro";
+import LineDiary from "./LineDiary";
+import Top10 from "./Top10";
+import YNegativeBars from "./YNegativeBars";
+import Autocomplete from "./Autocomplete";
+import BarsVerticalLegend from "./BarsVerticalLegend";
+import TwoGrapics from "./TwoGraphics";
+import BarsHorizontalLine from "./BarsHorizontalLine";
+import BarrasPaintByValue from "./BarrasPaintByVlue";
 
 const NAMES = [
-  { name: 'Sarah', value: 2502 },
-  { name: 'Emma', value: 2005 },
-  { name: 'Laura', value: 1968 },
-  { name: 'Chloé', value: 1863 },
-  { name: 'Marie', value: 1810 },
-  { name: 'Emily', value: 1637 },
-  { name: 'Léa', value: 1592 },
-  { name: 'Camille', value: 1572 },
-  { name: 'Anna', value: 1433 },
-  { name: 'Manon', value: 1403 }
-]
+  { name: "Sarah", value: 2502 },
+  { name: "Emma", value: 2005 },
+  { name: "Laura", value: 1968 },
+  { name: "Chloé", value: 1863 },
+  { name: "Marie", value: 1810 },
+  { name: "Emily", value: 1637 },
+  { name: "Léa", value: 1592 },
+  { name: "Camille", value: 1572 },
+  { name: "Anna", value: 1433 },
+  { name: "Manon", value: 1403 }
+];
 export default {
   name: "HelloWorld",
   components: {
@@ -476,7 +476,8 @@ export default {
     Autocomplete,
     BarsVerticalLegend,
     TwoGrapics,
-    BarsHorizontalLine
+    BarsHorizontalLine,
+    BarrasPaintByValue
   },
   props: {
     msg: String
@@ -517,15 +518,27 @@ export default {
           active: true
         }
       ],
-      width: '500',
-      height: '300',
-      circleSize:50,
-      data:[
-        {name: 'one', val: 100},
-        {name: 'two', val: 150},
-        {name: 'three', val: 200}
+      dataBarras: [
+        { name: "Sarah", value: 2502 },
+        { name: "Emma", value: 2005 },
+        { name: "Laura", value: 1968 },
+        { name: "Chloé", value: 1863 },
+        { name: "Marie", value: 1810 },
+        { name: "Emily", value: 1637 },
+        { name: "Léa", value: 1592 },
+        { name: "Camille", value: 1572 },
+        { name: "Anna", value: 1433 },
+        { name: "Manon", value: 1403 }
       ],
-      names: NAMES.slice(0,3)
+      width: "500",
+      height: "300",
+      circleSize: 50,
+      data: [
+        { name: "one", val: 100 },
+        { name: "two", val: 150 },
+        { name: "three", val: 200 }
+      ],
+      names: NAMES.slice(0, 3)
     };
   },
   computed: {
@@ -541,8 +554,8 @@ export default {
         return i;
       });
     },
-    canAddName(){
-      return this.names.length  < NAMES.length
+    canAddName() {
+      return this.names.length < NAMES.length;
     }
   },
   methods: {
@@ -563,83 +576,83 @@ export default {
       });
     },
     select(d, i) {
-     // console.log("d: ", d, " : ", i);
+      // console.log("d: ", d, " : ", i);
     },
-    drawCircle(){
+    drawCircle() {
       d3.select(this.$refs.circle1)
-      .append('circle')
-      .attr('cx','250')
-      .attr('cy','150')
-      .attr('r','100')
+        .append("circle")
+        .attr("cx", "250")
+        .attr("cy", "150")
+        .attr("r", "100");
     },
-    controllingSize(){
+    controllingSize() {
       let svg = d3.select(this.$refs.circle2);
       this.circle = svg
-        .append('circle')
-        .attr('cx','250')
-        .attr('cy','150')
-        .attr('r', this.circleSize)
+        .append("circle")
+        .attr("cx", "250")
+        .attr("cy", "150")
+        .attr("r", this.circleSize);
     },
-    buildBarras(){
+    buildBarras() {
       let svg = d3.select(this.$refs.figure1);
-      let width = +svg.attr('width');
-      let height = +svg.attr('height'); 
-      
+      let width = +svg.attr("width");
+      let height = +svg.attr("height");
+
       //console.log(height);
 
-       let data = [
-      {name: 'one', val: 100},
-      {name: 'two', val: 150},
-      {name: 'three', val: 200}
+      let data = [
+        { name: "one", val: 100 },
+        { name: "two", val: 150 },
+        { name: "three", val: 200 }
       ];
-      let x = d3.scaleBand()
-                .rangeRound([0, width]).padding(0.1)
-                .domain(data.map(d => d.name));
-      let y = d3.scaleLinear()
-                .rangeRound([height * 0.3 - 20, 0])
-                .domain([0,d3.max(data, d => d.val)])
-            
-           
-      function addRectsWithName(elem, name){
-        elem
-          .append('text')
-          .text(name)
-          .attr('x', width/2)
-          .attr('y', 5)
-          .attr('text-anchor','middle');
+      let x = d3
+        .scaleBand()
+        .rangeRound([0, width])
+        .padding(0.1)
+        .domain(data.map(d => d.name));
+      let y = d3
+        .scaleLinear()
+        .rangeRound([height * 0.3 - 20, 0])
+        .domain([0, d3.max(data, d => d.val)]);
 
-        elem.selectAll('rect')
+      function addRectsWithName(elem, name) {
+        elem
+          .append("text")
+          .text(name)
+          .attr("x", width / 2)
+          .attr("y", 5)
+          .attr("text-anchor", "middle");
+
+        elem
+          .selectAll("rect")
           .data(data)
           .enter()
-            .append('rect')
-            .attr('x', d => x(d.name))
-            .attr('class', d => d.name)
-            .attr('y', d => y(d.val))
-            .attr('width', x.bandwidth())
-            .attr('height', d => y.range()[0] - y(d.val))
+          .append("rect")
+          .attr("x", d => x(d.name))
+          .attr("class", d => d.name)
+          .attr("y", d => y(d.val))
+          .attr("width", x.bandwidth())
+          .attr("height", d => y.range()[0] - y(d.val));
       }
 
       svg
-        .append('g')
-        .attr('id', 'bars-style')
-        .attr('transform', `translate(0,20)`)
-        .call(addRectsWithName, 'Basic styles')
-      
-
+        .append("g")
+        .attr("id", "bars-style")
+        .attr("transform", `translate(0,20)`)
+        .call(addRectsWithName, "Basic styles");
     },
-    addName(){
+    addName() {
       this.names.push(NAMES[this.names.length]);
     }
   },
-  mounted(){
+  mounted() {
     this.drawCircle();
     this.controllingSize();
-    this.buildBarras()
+    this.buildBarras();
   },
-  watch:{
-    circleSize(newV){
-      this.circle
-        .attr('r',newV)
+  watch: {
+    circleSize(newV) {
+      this.circle.attr("r", newV);
     }
   }
 };
@@ -669,12 +682,12 @@ export default {
   font-family: sans-serif;
 }
 #bars-style .one {
-  fill: #ffc300
+  fill: #ffc300;
 }
 #bars-style .two {
-  fill: #c70039
+  fill: #c70039;
 }
 #bars-style .three {
-  fill: #571845
+  fill: #571845;
 }
 </style>
