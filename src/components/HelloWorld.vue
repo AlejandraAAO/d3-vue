@@ -381,6 +381,14 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">MetasYBarras</h2>
+        <div class="chart-container">
+          <MetasYBarras valueKey="total" labelKey="name"/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -424,6 +432,7 @@ import BarsVerticalLegend from "./BarsVerticalLegend";
 import TwoGrapics from "./TwoGraphics";
 import BarsHorizontalLine from "./BarsHorizontalLine";
 import BarrasPaintByValue from "./BarrasPaintByVlue";
+import MetasYBarras from './MetasYBarras';
 
 const NAMES = [
   { name: "Sarah", value: 2502 },
@@ -477,7 +486,8 @@ export default {
     BarsVerticalLegend,
     TwoGrapics,
     BarsHorizontalLine,
-    BarrasPaintByValue
+    BarrasPaintByValue,
+    MetasYBarras
   },
   props: {
     msg: String
