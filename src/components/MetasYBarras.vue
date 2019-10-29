@@ -32,7 +32,26 @@ export default {
           total: 1800
         }
       ],
-      linee: null
+      linee: [{
+          name: 'Mexico',
+          total: 700
+        },
+        {
+          name: 'China',
+          total: 4000
+        },
+        {
+          name: 'EEUU',
+          total: 2000
+        },
+        {
+          name: 'Perú',
+          total: 3500
+        },
+        {
+          name: 'Brasil',
+          total: 2000
+        }]
     };
   },
   mounted(){

@@ -389,6 +389,15 @@
         </div>
       </div>
     </div>
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">StackedBars</h2>
+        <div class="chart-container">
+          <StackedBarDespegar />
+        </div>
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -433,6 +442,8 @@ import TwoGrapics from "./TwoGraphics";
 import BarsHorizontalLine from "./BarsHorizontalLine";
 import BarrasPaintByValue from "./BarrasPaintByVlue";
 import MetasYBarras from './MetasYBarras';
+import StackedBarDespegar from './StackedBarDespegar';
+
 
 const NAMES = [
   { name: "Sarah", value: 2502 },
@@ -487,7 +498,8 @@ export default {
     TwoGrapics,
     BarsHorizontalLine,
     BarrasPaintByValue,
-    MetasYBarras
+    MetasYBarras,
+    StackedBarDespegar
   },
   props: {
     msg: String
