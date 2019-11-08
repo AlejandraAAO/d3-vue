@@ -397,7 +397,14 @@
         </div>
       </div>
     </div>
-    
+    <div class="grid-item">
+      <div class="card">
+        <h2 class="card-title">StackedBars Horizontal</h2>
+        <div class="chart-container">
+          <StackedBarDespegarHorizontal />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -443,6 +450,7 @@ import BarsHorizontalLine from "./BarsHorizontalLine";
 import BarrasPaintByValue from "./BarrasPaintByVlue";
 import MetasYBarras from './MetasYBarras';
 import StackedBarDespegar from './StackedBarDespegar';
+import StackedBarDespegarHorizontal from './StackedBarDespegarHorizontal';
 
 
 const NAMES = [
@@ -499,7 +507,8 @@ export default {
     BarsHorizontalLine,
     BarrasPaintByValue,
     MetasYBarras,
-    StackedBarDespegar
+    StackedBarDespegar,
+    StackedBarDespegarHorizontal
   },
   props: {
     msg: String
